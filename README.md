@@ -1,9 +1,3 @@
----
-layout: page
-title: Portfolio Homework 📊
-description: Description of the Portfolio Homework, the final assignment of the semester.
-nav_exclude: true
----
 
 # Recipe Analysis 🍽️🧂
 
