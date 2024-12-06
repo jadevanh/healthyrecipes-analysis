@@ -11,7 +11,7 @@
 ## Bivariate Plots
 
 <iframe
-  src="assets/file-name.html"
+  src="assets/bivar_box.html"
   width="800"
   height="600"
   frameborder="0"
