@@ -12,26 +12,26 @@ The central question we would like to investigate is **What do recipies tend to 
 
 ## Introduction to the dataset
 
-The original data set consisted of two data sets which we had merged by their 'id' column. This data set has 234,429 rows and 17 columns. We have chosen the following 16 columns to be included in our DataFrame for analysis. 10 of such columns were not in the original data set, but a subset of the original data cleaned and created from  separated. 
+The original data set consisted of two data sets which we had merged by their `id` column. This data set has 234,429 rows and 17 columns. We have chosen the following 16 columns to be included in our DataFrame for analysis. 10 of such columns were not in the original data set, but a subset of the original data cleaned and created from  separated. 
 
 ### Name and Descriptions of the Columns used: 
 
-- 'id': The id column 
-- 'submitted' : 
-- 'minutes' : 
-- 'n_steps'
-- 'n_ingredients'
-- 'n_rating'
-- 'avg_rating'
-- 'n_tags'
-- 'calories'
-- 'total fat'
-- 'sugar'
-- 'sodium'
-- 'saturated fat'
-- 'carbohydrates'
-- 'year'
-- 'healthy_tag'
+- `id`: The id column uniquely identifies the recipes on Food.com. 
+- `submitted` : The submitted column contains the date that the recipe was published by the creator. 
+- `minutes` : The minutes column 
+- `n_steps`
+- `n_ingredients`
+- `n_rating`
+- `avg_rating`
+- `n_tags`
+- `calories`
+- `total fat`
+- `sugar`
+- `sodium`
+- `saturated fat`
+- `carbohydrates`
+- `year`
+- `healthy_tag`
 
 ---
 # Data Cleaning and Exploratory Data Analysis
