@@ -1,24 +1,21 @@
 # **Recipe Analysis** 🍽️🧂
 ## Authors: Megan Bowen & Jade VanHaitsma
 Contact: jadev@umich.edu & megbowen@umich.edu
+
 ----
+
 # Introduction
 
 
 Online recipe websites have now replaced recipe books as the mainstream (and free!) way to find cooking inspiration for one's next meal. The data set we will be working with is a compilation of recipes and reviews from a popular website, Food.com. This website provides recipes for a variety of cuisines, dating back 15 years (2008), and stopping in 2018. The data sets had 10 years worth of recipe ideas where we would like to investigate what authors should be considered 'healthy' in their recipe.
 
-
-
-
 The central question we would like to investigate is, **What recipes tend to be healthier?** We would like to use data analysis techniques to classify whether or not a recipe would be tagged as 'healthy' based on the information in the data.
-
-
-
 
 ## Introduction to the dataset
 
 
 The original data set consisted of two data sets which we have merged by the recipe `id` column. This data set has 234,429 rows and 17 columns. We have chosen the following 16 columns to be included in our DataFrame for analysis. 10 of such columns were not in the original data set, but a subset of the original data cleaned and created from extracting data. 
+
 ### Column Name and Descriptions:
 
 
@@ -43,8 +40,6 @@ The original data set consisted of two data sets which we have merged by the rec
 ### Below are the first 5 rows of our cleaned DataFrame:
 
 
-
-
 | name                                  | submitted   |   minutes |   n_steps | ingredients                                                                                                                            |   n_ingredients |   n_rating |   avg_rating |   calories |   total fat |   sugar |   sodium |   protein |   saturated fat |   carbohydrates |   year |   healthy_tag |
 |:--------------------------------------|:------------|----------:|----------:|:---------------------------------------------------------------------------------------------------------------------------------------|----------------:|-----------:|-------------:|-----------:|------------:|--------:|---------:|----------:|----------------:|----------------:|-------:|--------------:|
 | impossible macaroni and cheese pie    | 2008-01-01  |        50 |        11 | ['cheddar cheese', 'macaroni', 'milk', 'eggs', 'bisquick', 'salt', 'red pepper sauce']                                                 |               7 |        nan |            3 |      386.1 |          34 |       7 |       24 |        41 |              62 |               8 |   2008 |             0 |
@@ -55,22 +50,17 @@ The original data set consisted of two data sets which we have merged by the rec
 
 
 ---
+
 # Data Cleaning and Exploratory Data Analysis
 
 
-
-
 ### Data Cleaning
-
-
-
 
 ---
 To start the cleaning process, we merged the two data sets, 'interactions' and 'recipes' on the `id` column which links the reviews and ratings of recipes with the information about the recipe from the recipe dataset.
 
 
-To follow, we have taken all recipes with rating '0', denoting that there was no rating for that particular interaction, and replaced them with nAn values.
-Below are the distribution of recipes before and after the drop.
+To follow, we have taken all recipes with rating '0', denoting that there was no rating for that particular interaction, and replaced them with nAn values. Below are the distribution of recipes before and after the drop.
 
 
 <iframe
@@ -89,18 +79,15 @@ Below are the distribution of recipes before and after the drop.
 ></iframe>
 
 
-After this, we chose to create the column 'avg_rating` which creates a column for the mean rating of each recipe of all the ratings the recipe has received.
-This allows us to do calculations on the recipes using one metric as the rating. 
+After this, we chose to create the column 'avg_rating` which creates a column for the mean rating of each recipe of all the ratings the recipe has received. This allows us to do calculations on the recipes using one metric as the rating. 
 
 
 Then, we have decided to take the relevant columns from the dataset, dropping the following columns: `contributor_id`, `steps`, `description`, `user_id`, and `recipe_id`. We chose to save the irrelevant columns and kept the columns, `name`,`id`,`minutes`,`submitted`,`tags`,`nutrition`,`n_steps`,`n_ingredients`,`user_id`,`rating`, and `avg_rating`. These columns will aid in the data analysis.
 
 
+### Exploratory Data Analysis
 
-
-
-
---
+---
 ## Univariate Analysis
 For our univariate analysis, we explored the distributions of nutritional information that is often related to the health of a recipe.
 Here we have histograms describing the distribution of total fats and sugars for all recipes.
@@ -114,14 +101,13 @@ We wanted the distribution of total fats, capping the x-axis at 200 (PDV) becaus
  height="600"
  frameborder="0"
 ></iframe>
-
-
 <iframe
  src="assets/total_fatCrop.html"
  width="800"
  height="600"
  frameborder="0"
 ></iframe>
+
 We also wanted to look at the distribution of sugars. For the same reason as total fats, we have attached the full distribution and a cut-off range of [0,200] for the sugar distribution.
 <iframe
  src="assets/sugarDist.html"
@@ -140,11 +126,8 @@ We also wanted to look at the distribution of sugars. For the same reason as tot
 Both plots are heavily right-skewed. We also see the medians of these distributions, as indicated by the red dotted line, and middle of the boxplot. The median for saturated fats is 21.0 PDV, and for sugars it is 23.0. This indicates that many of the listed recipes fall within typical daily value ranges for sugar and saturated fat composition.
 
 
-
-
-
-
 ---
+
 ## Bivariate Analysis
 This is a plot that describes the distributions of Calories in recipes that are tagged "Unhealthy" (red) vs "Healthy" (green).
 From this plot, we see the trend that the distribution of unhealthy recipes have a higher number of calories, while the healthy recipes tend to have fewer calories.
@@ -177,9 +160,8 @@ Looking at the plot, we noticed that there is a slight upward trend between the 
 ></iframe>
 
 
-
-
 ---
+
 ## Interesting Aggregates
 Here we've aggregated recipes based on if they've been tagged 'healthy' or not, and are looking at the median nutritional information for each tag category.
 We can see that recipes tagged 'healthy' have lower median calories, fats, sodium, and protein than those tagged 'unhealthy'.
@@ -201,6 +183,7 @@ We can see that recipes tagged 'healthy' have lower median calories, fats, sodiu
 
 
 ---
+
 # Framing a Prediction Problem
 Our prediction problem is a binary classification problem. We are hoping to classify recipes as either 'healthy' or 'not healthy' based on their nutritional content and ingredients -- the response variable is `healthy_tag`. 
 We chose this response variable because given the detailed information on the nutrients and ingredients of these recipes, we felt we could make insightful predictions about general recipe health based on that. 
@@ -209,10 +192,8 @@ When putting together a recipe, the user will have full information about the in
 
 We have decided to use accuracy as our performance metric because we consider true positives and true negatives equally for our predictions, and do not require the more in-depth analysis offered by F1. While we recognize that F1 often provides a more comprehensive performance metric, especially for imbalanced data, we ultimately decided accuracy was the metric we were able to improve our model upon the most and proceeded with that.
 
-
-
-
 ---
+
 # Baseline Model
 For our baseline model, we used Logistic Regression. Our features include `calories` and `protein`, both of which are quantitative.
 
@@ -227,6 +208,7 @@ Our aim is to incorporate more features that could be indicative of the health o
 
 
 ---
+
 # Final Model
 In our final model, we included the following nutritional features: `calories`, `total fat`, `sugar`, `sodium`, `protein`, `saturated fat`, `carbohydrates`. We wanted to use all nutritional information available to inform our model, seeing as just calories and protein do not give the full picture.
 
@@ -260,3 +242,5 @@ One challenge we’ve come to realize is that a recipe being tagged as ‘health
 
 
 ---
+
+December 7, 2024
