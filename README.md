@@ -115,8 +115,7 @@ We also wanted to look at the distribtution of sugars. For the same reason as to
   frameborder="0"
 ></iframe>
 
-Both plots are heavily right-skewed. For visualization purposes, we adjusted the ranges of both plots to be between 0-200.
-We also plotted the medians of these distributions, as indicated by the red dotted line. The median for saturated fats is 21.0 PDV, and for sugars it is 23.0. This indicates that many of the listed recipes fall within typical daily value ranges for sugar and saturated fat composition.
+Both plots are heavily right-skewed. We also see the medians of these distributions, as indicated by the red dotted line, and middle of the boxplot. The median for saturated fats is 21.0 PDV, and for sugars it is 23.0. This indicates that many of the listed recipes fall within typical daily value ranges for sugar and saturated fat composition.
 
 
 
@@ -184,7 +183,7 @@ For our baseline model, we used Logistic Regression. Our features include `calor
 Our baseline model's ACCURACY OR F1 score is: 
 
 We do not believe our current model is the best it can be, considering there is room to improve on our performance metric, and we are only using two features as our predictors. 
-Our aim is to incorporate more features that could be indicative of the health of a recipe, such as specific ingredients, as well as other nutritional information so that our model can make more informed classifications.
+Our aim is to incorporate more features that could be indicative of the healthiness of a recipe, such as specific ingredients, as well as other nutritional information so that our model can make more informed classifications.
 
 
 ---
