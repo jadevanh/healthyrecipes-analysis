@@ -97,7 +97,7 @@ We wanted the distribution of total fats, capping the x-axis at 200 (PDV) becaus
 
 
 <iframe
- src="assets/total_fatAll.html"
+ src="assets/total_fatReg.html"
  width="800"
  height="600"
  frameborder="0"
