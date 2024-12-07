@@ -135,6 +135,20 @@ We were also interested in the scatter plot between calories and carbohydrates. 
 Here we've aggregated recipes based on if they've been tagged 'healthy' or not, and are looking at the median nutritional information for each tag category.
 We can see that recipes tagged 'healthy' have lower median calories, fats, sodium, and protein than those tagged 'unhealthy'.
 
+|   year |   healthy_tag |
+|-------:|--------------:|
+|   2008 |      0.190893 |
+|   2009 |      0.188007 |
+|   2010 |      0.19753  |
+|   2011 |      0.212201 |
+|   2012 |      0.18315  |
+|   2013 |      0.183017 |
+|   2014 |      0.180172 |
+|   2015 |      0.124183 |
+|   2016 |      0.132353 |
+|   2017 |      0.128472 |
+|   2018 |      0.121693 |
+
 ---
 # Framing a Prediction Problem
 Our prediction problem is a binary classification problem. We are hoping to classify recipes as either 'healthy' or 'not healthy' based on their nutritional content and ingredients -- the response variable is `healthy_tag`. 
