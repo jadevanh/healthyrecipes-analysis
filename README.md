@@ -174,35 +174,35 @@ We have decided to use ACCURACY OR F1 as our performance metric because EXPLAIN 
 
 ---
 # Baseline Model
-For our baseline model, we used Logistic Regression. Our features include `calories` and `saturated fat`, both of which are quantitative.
+For our baseline model, we used Logistic Regression. Our features include `calories` and `protein`, both of which are quantitative. 
 
-Our baseline model's ACCURACY OR F1 score is: 
+Our baseline model's accuracy is: 0.8065
 
-We do not believe our current model is the best it can be, considering there is room to improve on our performance metric, and we are only using two features as our predictors. 
-Our aim is to incorporate more features that could be indicative of the healthiness of a recipe, such as specific ingredients, as well as other nutritional information so that our model can make more informed classifications.
+We do not believe our current model is the best it can be, considering there is room to improve on our performance metric, and we are only using two features (both of which are from nutritional content) as our predictors. Because of this, we also do not think our model would be super generalizable to unseen data.
 
+Our aim is to incorporate more features that could be indicative of the health of a recipe, such as specific ingredients, as well as other nutritional information so that our model can make more informed classifications.
 
 ---
 # Final Model
-In our final model, we included the following nutritional features: `sugar`, `sodium`, `protein`, `carbohydrates`. Note that we removed `calories` because components like protein and carbs contribute to the calorie count in a recipe, and we wanted to avoid multicollinearity.
-We engineered a new feature, `prop saturated fat`, which is the proportion `saturated fat` in the recipe's `total fat`. We decided to incorporate this feature considering that `total fat` is a summation of all fats, healthy and unhealthy in a given recipe. We focused on this proportion because recipes that get their total fats from primarily saturated fats are probably mre unhealthy.
-Lastly, we incorporated one-hot-encoded categorical features derived from `ingredients` into this model:
+In our final model, we included the following nutritional features: `calories`, `total fat`, `sugar`, `sodium`, `protein`, `saturated fat`, `carbohydrates`. We wanted to use all nutritional information available to inform our model, seeing as just calories and protein do not give the full picture.
+
+Lastly, we engineered 4 one-hot-encoded categorical features derived from `ingredients` into this model:
 - `low_ingredients`
 - `skim_ingredients`
 - `reduced_ingredients`
 - `organic_ingredients`
 These features have a value of 1 if a recipe contains any ingredient that is considered to be low/reduced content, skim, or organic. We added this because aside from strictly numerical nutrition information, one can also determine how healthy a recipe based on the type of ingredients used.
 
-After exploring many iterations of logistic regression models and decision trees, we ultimately used a Decision Tree for our final model as it performed better than our regression models. 
+After exploring different versions of logistic regression models and decision trees, we ultimately used a Decision Tree for our final model as it performed better than our regression models. 
+
 We tuned the hyperparameters using `GridSearchCV` and got the following optimal values:
-- `max_depth` = 
-- 
-ADD OTHER HYPERPARAMS IDK WHAT THEY ARE
+- `max_depth` = 6
+- `min_samples_split` = 7
 
-Our final model's ACCURACY OR F1 score is: 
-This is an improvement from our baseline!
+Our final model yielded a test accuracy of: 0.8135, which is a slight improvement from our baseline model. We believe incorporating additional nutritional content information as well as factoring in specific ingredient characteristics boosted out model performance by providing more specific insight to each recipe.
 
-We have included visualization of our decision tree as well as a confusion matrix describing its performance.
+We have included visualization of our confusion matrix describing this model’s performance:
 
----
-### December 5, 2024
+It should be noted that our model’s key flaw is that due to the skewness of the classes, we predict many False Negatives. That is, we predict recipes to be ‘unhealthy’ when they are in fact tagged ‘healthy’. This is also a likely cause for why our accuracy did not seem to improve by much even after running hyper parameters and adding relevant features. 
+
+One challenge we’ve come to realize is that a recipe being tagged as ‘healthy’ is completely up to the user who submits the recipe. A recipe could be nutritionally healthy, but if a user doesn’t ultimately tag it as ‘healthy,’ our model will fall short. The same goes for recipes that may be nutritionally unhealthy where the user tagged it as ‘healthy.’ Should we continue this analysis further, we would definitely want to refine our model to account for this subjectivity.
