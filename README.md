@@ -94,7 +94,12 @@ For our univariate analysis, we explored the distributions of nutritional inform
 Here we have histograms describing the distribution of total fats and sugars for all recipes.
 For many of our variables there are outliers, skewing the dating to be a wide range. We have chosen to crop these graphs in order to get a closer image of the distribution of the graph.
 We wanted the distribution of total fats, capping the x-axis at 200 (PDV) because this would mean the recipe has 200% more total than the typical daily intake. Values greater than this seemed not to make sense for the variable. 
-
+<iframe
+ src="assets/total_fatReg.html"
+ width="800"
+ height="600"
+ frameborder="0"
+></iframe>
 <iframe
  src="assets/total_fatCrop.html"
  width="800"
