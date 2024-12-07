@@ -1,13 +1,13 @@
 # **Recipe Analysis** 🍽️🧂
 ## Authors: Megan Bowen & Jade VanHaitsma
 Contact: jadev@umich.edu & megbowen@umich.edu
----
+----
 # Introduction
 
 Online recipe websites have now replaced recipe books as the mainstream (and free!) way to find cooking inpsiration for one's next meal. The data set we will be working with is a compiliation of recipes and reviews from a popular website, Food.com. This website provides recipies for a variety of cuisines, dating back 15 years (2008), and stopping in 2018. The data sets had 10 years worth of recipe idea where we would like to investigate what authors should be considered 'healthy' in their recipe. 
 
 
-The central question we would like to investigate is, **what do recipies tend to be healthier?** We would like to use data analysis techniques to predict the 
+The central question we would like to investigate is, **what do recipies tend to be healthier?** We would like to use data analysis techniques to classify whether or not a recipe would be tagged as 'healthy' based on the information in the data. 
 
 
 ## Introduction to the dataset
@@ -70,15 +70,11 @@ Below are the distribution of recipes before and after the drop.
   frameborder="0"
 ></iframe>
 
-After this, we chose to create the column 'avg_rating` which distributes the avg of the ratings for each recipe
+After this, we chose to create the column 'avg_rating` which creates a column for the mean rating of each recipe of all the ratings the recipe has recieved. 
+This allows us to do calculations on the recipes with rating with the varying number of reviews.
 
-**we should impute the nan vals with the avg rating**
+Then, we have decided to take the relevant columns from the dataset, dropping the following columns: `contributor_id`, `steps`, `description`, `user_id`, and `recipe_id`. We chose to save the irrelevant columns and kept the columns, `name`,`id`,`minutes`,`submitted`,`tags`,`nutrition`,`n_steps`,`n_ingredients`,`user_id`,`rating`, and `avg_rating`. These columns will aid in the data analysis. 
 
-Then, we have decided to take the relevant columsn from the dataset, dropping the following columns: `contributor_id`, `steps`, `description`, `user_id`, and `recipe_id`. We chose to save the irrelevant columns and kept the columns, `name`,`id`,`minutes`,`submitted`,`tags`,`nutrition`,`n_steps`,`n_ingredients`,`user_id`,`rating`, and `avg_rating`. These columns will aid in the data analysis. 
-
-
-
-Then, we have taken the tag column and create the `n_tags` columns with derived the infromation that 
 
 
 --
