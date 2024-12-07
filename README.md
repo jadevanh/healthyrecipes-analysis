@@ -135,7 +135,7 @@ We were also interested in the scatter plot between calories and carbohydrates. 
 Here we've aggregated recipes based on if they've been tagged 'healthy' or not, and are looking at the median nutritional information for each tag category.
 We can see that recipes tagged 'healthy' have lower median calories, fats, sodium, and protein than those tagged 'unhealthy'.
 
-|   year |   healthy_tag |
+|   `year` |   `healthy_tag` |
 |-------:|--------------:|
 |   2008 |      0.190893 |
 |   2009 |      0.188007 |
