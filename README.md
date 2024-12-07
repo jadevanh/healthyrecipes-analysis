@@ -33,6 +33,8 @@ The original data set consisted of two data sets which we have merged by the rec
 - `healthy_tag` : The 'healthy_tag' column indicates '1' if there was a tag of "healthy" on the recipe or '0' for no tag. 
 
 ### Below are the first 5 rows of our cleaned DataFrame:
+
+
 | name                                  | submitted   |   minutes |   n_steps | ingredients                                                                                                                            |   n_ingredients |   n_rating |   avg_rating |   calories |   total fat |   sugar |   sodium |   protein |   saturated fat |   carbohydrates |   year |   healthy_tag |
 |:--------------------------------------|:------------|----------:|----------:|:---------------------------------------------------------------------------------------------------------------------------------------|----------------:|-----------:|-------------:|-----------:|------------:|--------:|---------:|----------:|----------------:|----------------:|-------:|--------------:|
 | impossible macaroni and cheese pie    | 2008-01-01  |        50 |        11 | ['cheddar cheese', 'macaroni', 'milk', 'eggs', 'bisquick', 'salt', 'red pepper sauce']                                                 |               7 |        nan |            3 |      386.1 |          34 |       7 |       24 |        41 |              62 |               8 |   2008 |             0 |
