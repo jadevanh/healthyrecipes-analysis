@@ -204,7 +204,7 @@ We have decided to use accuracy as our performance metric because we consider tr
 For our baseline model, we used Logistic Regression. Our features include `calories` and `protein`, both of which are quantitative.
 
 
-Our baseline model's accuracy is: 0.8069
+Our baseline model's accuracy is: 0.8080
 
 We do not believe our current model is the best it can be, considering there is room to improve on our performance metric, and we are only using two features (both of which are from nutritional content) as our predictors. Because of this, we also do not think our model would be super generalizable to unseen data.
 
@@ -233,7 +233,7 @@ We tuned the hyperparameters using `GridSearchCV` and got the following optimal 
 - `max_depth` = 6
 - `min_samples_split` = 7
 
-Our final model yielded a test accuracy of: 0.8156, which is a slight improvement from our baseline model. We believe incorporating additional nutritional content information as well as factoring in specific ingredient characteristics boosted out model performance by providing more specific insight to each recipe.
+Our final model yielded a test accuracy of: 0.8163, which is a slight improvement from our baseline model. We believe incorporating additional nutritional content information as well as factoring in specific ingredient characteristics boosted out model performance by providing more specific insight to each recipe.
 
 We have included visualization of our confusion matrix describing this model’s performance:
 
