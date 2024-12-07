@@ -102,7 +102,7 @@ We also wanted to look at the distribtution of sugars. For the same reason as to
   frameborder="0"
 ></iframe>
 <iframe
-  src="assets/sugarDistCrop.html"
+  src="assets/sugarCropped.html"
   width="800"
   height="600"
   frameborder="0"
