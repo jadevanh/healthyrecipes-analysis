@@ -237,6 +237,13 @@ Our final model yielded a test accuracy of: 0.8163, which is a slight improvemen
 
 We have included visualization of our confusion matrix describing this model’s performance:
 
+<iframe
+ src="assets/confusion.html"
+ width="800"
+ height="600"
+ frameborder="0"
+></iframe>
+
 
 It should be noted that our model’s key flaw is that due to the skewness of the classes, we predict many False Negatives. That is, we predict recipes to be ‘unhealthy’ when they are in fact tagged ‘healthy’. This is also a likely cause for why our accuracy did not seem to improve by much even after running hyper parameters and adding relevant features.
 
