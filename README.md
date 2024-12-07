@@ -53,9 +53,22 @@ The original data set consisted of two data sets which we have merged by the rec
 --- 
 To start the cleaning process, we merged the two data sets, 'interactions' and 'recipes' on the `id` column which links the reviews and ratings of recipes with the information about the recipe from the recipe dataset. 
 
-To follow, we have taken all recipes with rating '0', denoting that there was no rating for that particular interaction. Below are the distribution of recipes before and after the drop. 
+To follow, we have taken all recipes with rating '0', denoting that there was no rating for that particular interaction, and replaced them with nAn values. 
+Below are the distribution of recipes before and after the drop. 
 
-**INSERT HERE BEFORE AND AFTER DIST**
+<iframe
+  src="assets/ratingRaw.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/ratingClean.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 After this, we chose to create the column 'avg_rating` which distributes the avg of the ratings for each recipe
 
@@ -67,12 +80,6 @@ Then, we have decided to take the relevant columsn from the dataset, dropping th
 
 Then, we have taken the tag column and create the `n_tags` columns with derived the infromation that 
 
-
-
-
-- cutting off the number due to physical or real work significance -- we will put both of them
-
-- show remove at 0 and show nan for ratings
 
 --
 ## Univariate Analysis
@@ -115,15 +122,26 @@ We also plotted the medians of these distributions, as indicated by the red dott
 
 ---
 ## Bivariate Analysis
-This is a plot that describles the distrivbutions of Calories in recipies that are tagged "Unhealthly" (red) vs "Healthy" (green). Note that due to a high number of outliers, we have cropped the range of the plot to be between 0 and 2000 calories, as that is typical daily intake.
+This is a plot that describles the distrivbutions of Calories in recipies that are tagged "Unhealthly" (red) vs "Healthy" (green). 
+From this plot, we see the trend that the distribtution of unhealthy recipies have a higher number of calories, while the healthy recipes tend to have fewer calories. 
+
 <iframe
-  src="assets/bivar_box.html"
+  src="assets/colorCalorieCrop.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+Note that due to a high number of outliers, we have cropped the range of the plot to be between 0 and 2000 calories, as that is typical daily intake.
+<iframe
+  src="assets/colorCalorieFull.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
 
 We were also interested in the scatter plot between calories and carbohydrates. this gives us insight into how the two nurtients are related, and if there is any pattern when looking at the dots between healthy and unhealthy recipes based on these variables. 
+Looking at the plot, we noticed that there is a slight upward trend between the two variables, and many of the recipies with lower calories are seen as healthy, over the recipes that have high calories.
 <iframe
   src="assets/colorCalorieScatterp.html"
   width="800"
