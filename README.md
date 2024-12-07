@@ -9,7 +9,9 @@ Contact: jadev@umich.edu & megbowen@umich.edu
 
 Online recipe websites have now replaced recipe books as the mainstream (and free!) way to find cooking inspiration for one's next meal. The data set we will be working with is a compilation of recipes and reviews from a popular website, Food.com. This website provides recipes for a variety of cuisines, dating back 15 years (2008), and stopping in 2018. The data sets had 10 years worth of recipe ideas where we would like to investigate what authors should be considered 'healthy' in their recipe.
 
-The central question we would like to investigate is, **What recipes tend to be healthier?** We would like to use data analysis techniques to classify whether or not a recipe would be tagged as 'healthy' based on the information in the data.
+The central question we would like to investigate is, **What recipes tend to be healthier?** We would like to use data analysis techniques to classify whether or not a recipe would be tagged as 'healthy' based on the information in the data. When using a recipe website, whether someone is looking for a healthy lunch, or is on a diet, healthy, delicious recipes are often a main goal for people searching. We want to investigate if the recipes on Food.com are representative and consistent in their healthiness based on their nutrional facts and ingredients in the recipes that creator have deemed 'healthy'. It is important to know that when one is searching for a healthy recipe, that they are going to be given accurate results. 
+
+
 
 ## Introduction to the dataset
 
@@ -58,10 +60,9 @@ The original data set consisted of two data sets which we have merged by the rec
 ### Data Cleaning
 
 ---
-To start the cleaning process, we merged the two data sets, 'interactions' and 'recipes' on the `id` column which links the reviews and ratings of recipes with the information about the recipe from the recipe dataset.
+To start the cleaning process, we merged the two data sets, 'interactions' and 'recipes' on the `id` column which links the reviews and ratings of recipes with the information about the recipe from the recipe dataset. This allowed us to see the popularity and reviews of the data set. 
 
-
-To follow, we have taken all recipes with rating '0', denoting that there was no rating for that particular interaction, and replaced them with nAn values. Below are the distribution of recipes before and after the drop.
+To follow, we have taken all recipes with rating '0', denoting that there was no rating for that particular interaction, and replaced them with nAn values. Below are the distribution of recipes before and after the change.
 
 
 <iframe
@@ -84,6 +85,10 @@ After this, we chose to create the column 'avg_rating` which creates a column fo
 
 
 Then, we have decided to take the relevant columns from the dataset, dropping the following columns: `contributor_id`, `steps`, `description`, `user_id`, and `recipe_id`. We chose to save the irrelevant columns and kept the columns, `name`,`id`,`minutes`,`submitted`,`tags`,`nutrition`,`n_steps`,`n_ingredients`,`user_id`,`rating`, and `avg_rating`. These columns will aid in the data analysis.
+
+After selecting our relevant columns, we conducting further cleaning. We knew we were interested in the nutrition column for our health metrics, so we expanded that column into multiple individual columns for values calories, total fats, etc. for the information in `nutrition`.
+
+We also wanted to look at yearly recipe trends, so we made a `year` column by extracting the year from the `submitted	` column, which contains the date a recipe was submitted.
 
 
 ### Exploratory Data Analysis
@@ -163,7 +168,8 @@ Looking at the plot, we noticed that there is a slight upward trend between the 
 
 ## Interesting Aggregates
 Here we've aggregated recipes based on if they've been tagged 'healthy' or not, and are looking at the median nutritional information for each tag category.
-We can see that recipes tagged 'healthy' have lower median calories, fats, sodium, and protein than those tagged 'unhealthy'.
+We can see that recipes per year that were tagged 'healthy' have tended to proportionally decrease. In 2019, ther were a sudden drop in recipes tagged 'healthy' which we found very interesting as we started our analysis.
+
 
 
 |   `year` |   `healthy_tag` |
@@ -188,6 +194,7 @@ Our prediction problem is a binary classification problem. We are hoping to clas
 We chose this response variable because given the detailed information on the nutrients and ingredients of these recipes, we felt we could make insightful predictions about general recipe health based on that. 
 When putting together a recipe, the user will have full information about the ingredients and thus nutritional content of the recipe, so it is fair game using predictors from these categories as a basis for whether it would be considered a healthy recipe.
 
+During the time of prediction, we must have the list of ingredients and nutritional information, specifially, the PDV of sodium, carbohydrates, total fats, saturated fats, sugar, and protein, and number of calories. We must know these in order to make a recipe because the contents that make up the meal wil determine their 'healthiness.'
 
 We have decided to use accuracy as our performance metric because we consider true positives and true negatives equally for our predictions, and do not require the more in-depth analysis offered by F1. While we recognize that F1 often provides a more comprehensive performance metric, especially for imbalanced data, we ultimately decided accuracy was the metric we were able to improve our model upon the most and proceeded with that.
 
@@ -197,8 +204,7 @@ We have decided to use accuracy as our performance metric because we consider tr
 For our baseline model, we used Logistic Regression. Our features include `calories` and `protein`, both of which are quantitative.
 
 
-Our baseline model's accuracy is: 0.8065
-
+Our baseline model's accuracy is: 0.8069
 
 We do not believe our current model is the best it can be, considering there is room to improve on our performance metric, and we are only using two features (both of which are from nutritional content) as our predictors. Because of this, we also do not think our model would be super generalizable to unseen data.
 
@@ -227,9 +233,7 @@ We tuned the hyperparameters using `GridSearchCV` and got the following optimal 
 - `max_depth` = 6
 - `min_samples_split` = 7
 
-
-Our final model yielded a test accuracy of: 0.8135, which is a slight improvement from our baseline model. We believe incorporating additional nutritional content information as well as factoring in specific ingredient characteristics boosted out model performance by providing more specific insight to each recipe.
-
+Our final model yielded a test accuracy of: 0.8156, which is a slight improvement from our baseline model. We believe incorporating additional nutritional content information as well as factoring in specific ingredient characteristics boosted out model performance by providing more specific insight to each recipe.
 
 We have included visualization of our confusion matrix describing this model’s performance:
 
