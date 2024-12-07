@@ -19,18 +19,19 @@ The original data set consisted of two data sets which we have merged by the rec
 ### Column Name and Descriptions:
 
 
-- `id`: The 'id' column uniquely identifies the recipes on Food.com, used as the index column for our purposes.
+- `name`: The 'name' column identifies the recipes on Food.com. We have kept this column as identification. The index of our Data Frame is the `id` of the recipe.
 - `submitted` : The 'submitted' column contains the date that the recipe was published by the creator.
 - `minutes` : The 'minutes' column represents the number of minutes that it takes for a recipe to be made from start to end.
 - `n_steps` : The 'n_steps' column is a record of the number of steps each recipe has, created by the author.
-- `n_ingredients`: The 'n_steps' column is a record of the number of ingredients each recipe has.
+- - `ingredients`: The 'ingredients' column contains all the ingredients stored in a string that are needed for the recipe. We use this column for further analysis later on in the investigation. 
+- `n_ingredients`: The 'n_ingredients' column is a record of the number of ingredients each recipe has.
 - `n_rating` : The 'n_rating' column gives a 1-5 rating from users who have attempted to create a particular recipe. Recipes with a rating of '0' were not given a rating by the user who reviewed them.
 - `avg_rating` : The 'avg_rating' column contains the mean rating for each particular recipe based on the reviews and ratings per recipe id. 
-- `n_tags` : The 'n_tags' column is a record of the number of tags each recipe has that was put on the recipe by the author.
 - `calories`: Subset of the original 'nutrition' column, the 'calories' column records the self-reported number of calories for the recipe.
 - `total fat`: Subset of the original 'nutrition' column, the 'total fat' column records the PDV of total fat for the recipe.
 - `sugar`: Subset of the original 'nutrition' column, the 'sugar' column records the PDV of sugar for the recipe.
 - `sodium`: Subset of the original 'nutrition' column, the 'sodium' column records the PDV of sodium for the recipe.
+- `protein`: Subset of the original 'nutrition' column, the 'protien' column records the PDV of protein for the recipe.
 - `saturated fat`: Subset of the original 'nutrition' column, the 'saturated fat' column records the PDV of saturated fat for the recipe.
 - `carbohydrates`: Subset of the original 'nutrition' column, the 'carbohydrates' column records the PDV of carbohydrates for the recipe.
 - `year` : The 'year' column is a subset of the 'submitted’ column. We extracted the year in order to get data about recipes on a per year basis.
