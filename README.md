@@ -158,7 +158,7 @@ From this plot, we see the trend that the distribution of unhealthy recipes have
 ></iframe>
 
 
-Note that due to a high number of outliers, we have cropped the range of the plot to be between 0 and 2000 calories, as that is typical daily intake.
+Note that due to a high number of outliers, we have cropped the range of the plot to be between 0 and 2000 calories, as that is typical daily intake. Below is the original plot. 
 <iframe
  src="assets/colorCalorieFull.html"
  width="800"
