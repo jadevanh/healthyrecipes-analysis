@@ -1,4 +1,4 @@
-# **Recipes: How can the contents of our recipes be evaluated as healthy?** 🍽️🧂
+# **Recipes: What makes a recipe 'healthy'? ?** 🍽️🧂
 ## Authors: Megan Bowen & Jade VanHaitsma
 Contact: jadev@umich.edu & megbowen@umich.edu
 
