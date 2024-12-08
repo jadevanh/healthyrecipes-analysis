@@ -1,4 +1,4 @@
-# **Recipe Analysis** 🍽️🧂
+# **Recipes: How can the contents of our recipes be evaluated as healthy?** 🍽️🧂
 ## Authors: Megan Bowen & Jade VanHaitsma
 Contact: jadev@umich.edu & megbowen@umich.edu
 
