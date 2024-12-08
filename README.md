@@ -1,4 +1,4 @@
-# **Recipes: What makes a recipe 'healthy'? ?** 🍽️🧂
+# **Recipes: What makes a recipe 'healthy'?** 🍽️🧂
 ## Authors: Megan Bowen & Jade VanHaitsma
 Contact: jadev@umich.edu & megbowen@umich.edu
 
